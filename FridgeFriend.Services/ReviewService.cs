@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace FridgeFriend.Services
 {
-    public class Class1
+    public class ReviewService
     {
+
     }
 }
