@@ -10,6 +10,7 @@ using Microsoft.Owin.Security.OAuth;
 using Owin;
 using FridgeFriend.WebApi.Providers;
 using FridgeFriend.WebApi.Models;
+using FridgeFriend.Data;
 
 namespace FridgeFriend.WebApi
 {
