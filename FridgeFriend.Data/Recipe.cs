@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
 namespace FridgeFriend.Data
 {
@@ -20,15 +21,14 @@ namespace FridgeFriend.Data
         // public int ItemID {get; set; }
         // public virtual Fridge Fridge {get; set; } - nav property 
 
-        public List<ItemName> AvalibleItems { get; set; }
 
-        public List<ItemName> NeededItems { get; set; }
+        public List<Name> NeededItems { get; set; }
 
         [Required]
         public MealType Type { get; set; }
-        public List<Recipes> ListOfRecipes { get; set; }
+        public List<Recipe> ListOfRecipes { get; set; }
 
         [Required]
-        public List<ItemName> AvalibleItems { get; set; }
+        public List<Name> AvalibleItems { get; set; }
     }
 }
