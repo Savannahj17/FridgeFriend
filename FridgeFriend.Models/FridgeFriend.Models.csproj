@@ -64,6 +64,7 @@
     <Compile Include="RecipeModels\RecipeItemListItem.cs" />
 
     <Compile Include="ReviewCreate.cs" />
+    <Compile Include="ReviewDetail.cs" />
     <Compile Include="ReviewEdit.cs" />
     <Compile Include="ReviewListItem.cs" />
 
