@@ -7,13 +7,16 @@ using System.Threading.Tasks;
 
 namespace FridgeFriend.Models
 {
-    public class ReviewListItem
+    public class ReviewDetail
     {
-        public int RecipeID { get; set; }
         public int ReviewID { get; set; }
-        public string Review { get; set; }
+        public int RecipeID { get; set; }
+        public string MyProperty { get; set; }
 
         [Display(Name="Created")]
         public DateTimeOffset CreatedUtc { get; set; }
+
+        [Display(Name = "Modified")]
+        public DateTimeOffset? ModifiedUtc { get; set; }
     }
 }
