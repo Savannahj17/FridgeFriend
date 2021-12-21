@@ -11,7 +11,7 @@ namespace FridgeFriend.Models
     {
         public int ReviewID { get; set; }
         public int RecipeID { get; set; }
-        public string MyProperty { get; set; }
+        public string Review { get; set; }
 
         [Display(Name="Created")]
         public DateTimeOffset CreatedUtc { get; set; }

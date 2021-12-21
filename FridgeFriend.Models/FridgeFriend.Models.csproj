@@ -56,6 +56,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReviewCreate.cs" />
+    <Compile Include="ReviewDbContext.cs" />
     <Compile Include="ReviewDetail.cs" />
     <Compile Include="ReviewEdit.cs" />
     <Compile Include="ReviewListItem.cs" />
@@ -63,6 +64,12 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FridgeFriend.Data\FridgeFriend.Data.csproj">
+      <Project>{1C1BED2D-BF87-4597-A311-43A6A1F8308C}</Project>
+      <Name>FridgeFriend.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
