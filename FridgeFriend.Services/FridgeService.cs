@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FridgeFriend.Services
 {
-    class FrideService
+    public class FridgeService
     {
     }
 }
