@@ -13,5 +13,7 @@ namespace FridgeFriend.Models
         [MinLength(2, ErrorMessage = "Please enter at least two characters.")]
         [MaxLength(8000, ErrorMessage = "There are too many characters in this field.")]
         public string Review { get; set; }
+
+        public DateTimeOffset MyProperty { get; set; }
     }
 }

@@ -7,15 +7,15 @@ using System.Threading.Tasks;
 
 namespace FridgeFriend.Data
 {
-    public class Review
+    public class Reviews
     {
         //[ForeignKey]
         public int RecipeID { get; set; }
 
         public int ReviewID { get; set; }
         public string RecipeName { get; set; }
-       // public string Review { get; set; }
+        public string Review { get; set; }
         public double Rating { get; set; }
-        public ICollection<Review> ListOfReviews { get; set; }
+        public ICollection<Reviews> ListOfReviews { get; set; }
     }
 }

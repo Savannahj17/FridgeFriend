@@ -25,5 +25,6 @@ namespace FridgeFriend.Models.RecipeModels
         public DateTime ExpirationDate { get; set; }
         [Required]
         public FoodGroup Type { get; set; }
+        public int FridgeId { get; set; }
     }
 }

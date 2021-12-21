@@ -12,23 +12,22 @@ namespace FridgeFriend.Data
     public class Recipe
     {
         [Key]
-        public int recipeID { get; set; }
+        public int RecipeID { get; set; }
         [Required]
-        public string recipeName { get; set; }
+        public string RecipeName { get; set; }
         [Required]
-        public int servingSize { get; set; }
+        public int ServingSize { get; set; }
         //[ForeignKey]
-        // public int ItemID {get; set; }
-        // public virtual Fridge Fridge {get; set; } - nav property 
-
-
-        public List<Name> NeededItems { get; set; }
+        public virtual ICollection<RecipeItem> RecipeItems{ get; set; }
+        [Required]
+        public List<RecipeItem> NeededItems { get; set; }
+        [Required]
+        public List<RecipeItem> AvalibleItems { get; set; }
 
         [Required]
+        [Display(Name = "MealType")]
         public MealType Type { get; set; }
         public List<Recipe> ListOfRecipes { get; set; }
-
-        [Required]
-        public List<Name> AvalibleItems { get; set; }
+        public ICollection<RecipeItem> RecipeItems { get; set; }
     }
 }

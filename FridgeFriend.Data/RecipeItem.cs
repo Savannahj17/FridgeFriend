@@ -17,9 +17,9 @@ namespace FridgeFriend.Data
         public string Name { get; set; }
         [Required]
         public int Calories { get; set; }
-        //[ForeignKey]
-        // public int FridgeID {get; set; }
-        // public virtual Fridge Fridge {get; set; } - nav property 
+        [ForeignKey(nameof(Fridge))]
+        public int FridgeId { get; set; }
+        public virtual Fridge Fridge { get; set; }
         [Required]
         [Display(Name = "Date Purchased")]
         public DateTime PurchaseDate { get; set; }
@@ -28,10 +28,11 @@ namespace FridgeFriend.Data
         public DateTime ExpirationDate { get; set; }
         [Required]
         public FoodGroup Type { get; set; }
-       // public ICollection<Recipes> ListOfRecipes { get; set; }
-       //public Recipe()
-       //{
-       //   ListOfRecipes = new HashSet<Recipe>();
-       // 
+        public virtual ICollection<Recipe> ListOfRecipes { get; set; }
+        public RecipeItem()
+        {
+            ListOfRecipes = new HashSet<Recipe>();
+
+        }
     }
 }
