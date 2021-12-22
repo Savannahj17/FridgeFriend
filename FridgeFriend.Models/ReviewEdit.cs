@@ -10,5 +10,6 @@ namespace FridgeFriend.Models
     {
         public int ReviewID { get; set; }
         public string Review { get; set; }
+        public string RecipeName { get; set; }
     }
 }

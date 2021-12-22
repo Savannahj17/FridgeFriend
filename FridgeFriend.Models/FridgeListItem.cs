@@ -10,9 +10,6 @@ namespace FridgeFriend.Models
     public class FridgeListItem
     {
         public int FridgeId { get; set; }
-        public string FridgeName { get; set; }
-
-        [Display(Name="Created")]
-        public DateTimeOffset CreatedUtc { get; set; }
+        public string Nickname { get; set; }
     }
 }
