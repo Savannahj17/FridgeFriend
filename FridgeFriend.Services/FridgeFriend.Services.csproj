@@ -65,6 +65,16 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FridgeFriend.Data\FridgeFriend.Data.csproj">
+      <Project>{1C1BED2D-BF87-4597-A311-43A6A1F8308C}</Project>
+      <Name>FridgeFriend.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FridgeFriend.Models\FridgeFriend.Models.csproj">
+      <Project>{5C3ECC6F-158A-49D3-95C0-6322BCC74814}</Project>
+      <Name>FridgeFriend.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
