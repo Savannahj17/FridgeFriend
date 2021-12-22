@@ -9,8 +9,13 @@ namespace FridgeFriend.Data
 {
     public class Fridge
     {
+
+
         [Key]
         public int FridgeId { get; set; }
+
+        [Required]
+        public Guid OwnerId { get; set; }
 
         [Required]
         public string FridgeMake { get; set; }
