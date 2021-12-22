@@ -16,6 +16,6 @@ namespace FridgeFriend.Models
         }
 
 
-        public DbSet<Reviews> Review { get; set; }
+        public DbSet<Review> Reviews { get; set; }
     }
 }
