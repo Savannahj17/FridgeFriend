@@ -67,7 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FridgeFriend.Data\FridgeFriend.Data.csproj">
-      <Project>{1C1BED2D-BF87-4597-A311-43A6A1F8308C}</Project>
+      <Project>{1c1bed2d-bf87-4597-a311-43a6a1f8308c}</Project>
       <Name>FridgeFriend.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\FridgeFriend.Models\FridgeFriend.Models.csproj">

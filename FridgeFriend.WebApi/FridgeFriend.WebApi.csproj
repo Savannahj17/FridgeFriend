@@ -209,6 +209,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\FridgeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ReviewController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
@@ -331,6 +332,10 @@
     <ProjectReference Include="..\FridgeFriend.Models\FridgeFriend.Models.csproj">
       <Project>{5C3ECC6F-158A-49D3-95C0-6322BCC74814}</Project>
       <Name>FridgeFriend.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FridgeFriend.Services\FridgeFriend.Services.csproj">
+      <Project>{FB445639-52FC-4C7A-8783-4389488DEAC5}</Project>
+      <Name>FridgeFriend.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
