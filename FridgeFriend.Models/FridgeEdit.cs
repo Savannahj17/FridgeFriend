@@ -5,37 +5,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FridgeFriend.Data
+namespace FridgeFriend.Models
 {
-    public class Fridge
+    public class FridgeEdit
     {
-
-
-        [Key]
         public int FridgeId { get; set; }
-
-        [Required]
-        public Guid OwnerId { get; set; }
-
-        [Required]
         public string FridgeMake { get; set; }
-
-        [Required]
         public string FridgeModel { get; set; }
-
-        [Required]
         public string Nickname { get; set; }
-
         public string Address { get; set; }
-
-        [Required]
         public string UserEmail { get; set; }
 
-        [Required]
-        public Guid UserId { get; set; } //not needed
-
-        [Required]
-        public List<RecipeItem> RecipeItems { get; set; }
+        [Display(Name = "Modified")]
         public DateTimeOffset ModifiedUtc { get; set; }
     }
 }

@@ -35,7 +35,19 @@ namespace FridgeFriend.WebApi.Controllers
 
             return Ok();
         }
+        [HttpPut]
+        public IHttpActionResult Put(FridgeEdit fridge)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
 
+            var service = CreateFridgeService();
+
+            if (!service.UpdateFridge(fridge))
+                return InternalServerError();
+
+            return Ok();
+        }
 
         [HttpDelete]
         public IHttpActionResult Delete(int id)

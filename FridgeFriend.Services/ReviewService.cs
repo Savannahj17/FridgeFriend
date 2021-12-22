@@ -10,60 +10,98 @@ namespace FridgeFriend.Services
 {
     public class ReviewService
     {
-        public bool CreateReview(ReviewCreate model, int RecipeID)
+        public bool CreateReview(ReviewCreate model)
         {
             var entity =
                 new Review()
                 {
-                   
+                    RecipeID = model.RecipeID,
+                    ReviewID = model.ReviewID,
+                    ReviewText = model.ReviewText,
+                    Rating = model.Rating,
+                    //RecipeName = model.RecipeName,
                     CreatedUtc = DateTimeOffset.Now
 
                 };
             using (var ctx = new ApplicationDbContext())
             {
-                ctx.Review.Add(entity);
+                ctx.Reviews.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
 
         }
 
-        public IEnumerable<ReviewListItem> GetAllReviews(int RecipeID)
+        public ReviewDetail GetReviewsByRecipeID(int recipeID)
         {
             using (var ctx = new ApplicationDbContext())
-            {//linq sintax
-                var query =
-                    ctx //database
-                    . //table
-                    .Select(
-                        else => new ReviewListItem //define the form
-                        {
-                            ReviewID = e.ReviewID
-
-                        });
-                return query.ToArray();
+            {
+                var entity =
+                    ctx
+                    .Reviews
+                    .Single(e => e.RecipeID == recipeID);
+                return
+                    new ReviewDetail
+                    {
+                        ReviewID = entity.ReviewID,
+                        ReviewText = entity.ReviewText
+                    };
             }
 
         }
 
-        public bool GetReview(int ReviewID)
-        { using (var ctx = new ApplicationDbContext())
+        public ReviewDetail GetReview(int reviewID)
+        {
+            using (var ctx = new ApplicationDbContext())
             {
-                var query =
+                var entity =
                     ctx
                         .Reviews
-                        .Where(e = e.ReviewID)
+                        .Single(e => e.ReviewID == reviewID);
+                return
+                    new ReviewDetail
+                    {
+                        ReviewID = entity.ReviewID,
+                        ReviewText = entity.ReviewText,
+                        Rating = entity.Rating,
+                        //RecipeName = entity.RecipeName,
+                        CreatedUtc = DateTimeOffset.Now
+                    };
             }
-        
-        }
-
-        public bool UpdateReview(int ReviewID)
-        {
 
         }
 
-        public bool DeleteReview(ReviewID)
+        public bool UpdateReview(ReviewEdit model)
         {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Reviews
+                    .Single(e => e.ReviewID == model.ReviewID);
 
+                entity.ReviewID = model.ReviewID;
+                entity.Rating = model.Rating;
+                //entity.RecipeName = model.RecipeName;
+                entity.ReviewText = model.ReviewText;
+
+                return ctx.SaveChanges() == 1;
+            }
+
+        }
+
+        public bool DeleteReview(int ReviewID)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Reviews
+                    .Single(e => e.ReviewID == ReviewID);
+
+                ctx.Reviews.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
         }
     }
 }

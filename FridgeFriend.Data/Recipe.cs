@@ -18,11 +18,11 @@ namespace FridgeFriend.Data
         [Required]
         public int ServingSize { get; set; }
         [ForeignKey(nameof(ItemName))]
-        public string Name { get; set; }
+        public int RecipeItemId { get; set; }
         public virtual RecipeItem ItemName { get; set; }
         public List<RecipeItem> NeededItems { get; set; }
         [Required]
-        public List<RecipeItem> AvalibleItems { get; set; }
+        public List<RecipeItem> AvailableItems { get; set; }
 
         [Required]
         [Display(Name = "MealType")]

@@ -8,23 +8,22 @@ using System.Threading.Tasks;
 
 namespace FridgeFriend.Data
 {
-    public class Reviews
+    public class Review
     {
         //Foreign
-        [Display(Name="Recipe")]
-        public virtual int RecipeID { get; set; }
-
+        [Display(Name = "Recipe")]
+        public  int RecipeID { get; set; }
+        public virtual Recipe RecipeName { get; set; }
         public int ReviewID { get; set; }
-        public string RecipeName { get; set; }
-        public string Review { get; set; }
+        public string ReviewText { get; set; }
         public double Rating { get; set; }
         public DateTimeOffset CreatedUtc { get; set; }
         public DateTimeOffset? ModifiedUtc { get; set; }
-        public ICollection<Reviews> ListOfReviews { get; set; }
+        public ICollection<Review> ListOfReviews { get; set; }
 
-        public Reviews()
+        public Review()
         {
-            ListOfReviews = new HashSet<Reviews>();
+            ListOfReviews = new HashSet<Review>();
         }
     }
 }

@@ -57,7 +57,25 @@ namespace FridgeFriend.Services
                 return query.ToArray();
             }
         }
+        public bool UpdateFridge(FridgeEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Fridges
+                        .Single(e => e.FridgeId == model.FridgeId && e.OwnerId == _userId);
 
+                entity.FridgeMake = model.FridgeMake;
+                entity.FridgeModel = model.FridgeModel;
+                entity.Nickname = model.Nickname;
+                entity.Address = model.Address;
+                entity.UserEmail = model.UserEmail;
+                entity.ModifiedUtc = DateTimeOffset.UtcNow;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
         public bool DeleteFridge(int fridgeId)
         {
             using (var ctx = new ApplicationDbContext())

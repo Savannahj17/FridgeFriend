@@ -9,12 +9,12 @@ using System.Threading.Tasks;
 namespace FridgeFriend.Data
 {
     public enum FoodGroup { grain, fruit, vegetable, dairy, meat, eggs, fats, sweets, beverages, other }
-    public class RecipeItem
+    public class RecipeItem 
     {
         [Key]
         public int ItemID { get; set; }
         [Required]
-        public string Name { get; set; }
+        public string ItemName { get; set; }
         [Required]
         public int Calories { get; set; }
         [ForeignKey(nameof(Fridge))]
@@ -27,7 +27,7 @@ namespace FridgeFriend.Data
         [Display(Name = "Date Expired")]
         public DateTime ExpirationDate { get; set; }
         [Required]
-        public FoodGroup Type { get; set; }
+        public FoodGroup FoodType { get; set; }
         public virtual ICollection<Recipe> ListOfRecipes { get; set; }
         public RecipeItem()
         {

@@ -10,7 +10,7 @@ namespace FridgeFriend.Models.RecipeModels
     public class RecipeItemDetail
     {
         public int ItemID { get; set; }
-        public string Name { get; set; }
+        public string ItemName { get; set; }
         [Display(Name = "Date Purchased")]
         public DateTime PurchaseDate { get; set; }
         [Display(Name = "Date Expired")]

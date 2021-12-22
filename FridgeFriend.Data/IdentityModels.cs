@@ -32,5 +32,7 @@ namespace FridgeFriend.Data
         }
         public DbSet<RecipeItem> RecipeItems { get; set; }
         public DbSet<Fridge> Fridges { get; set; }
+        public DbSet<Review> Reviews { get; set; }
+        public DbSet<Recipe> Recipes { get; set; }
     }
 }

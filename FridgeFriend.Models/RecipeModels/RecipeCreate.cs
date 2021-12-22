@@ -8,23 +8,23 @@ using System.Threading.Tasks;
 
 namespace FridgeFriend.Models.RecipeModels
 {
-    public class RecipeItemCreate
+    public class RecipeCreate
     {
-        public int ItemID { get; set; }
+        [Required]
+        public int RecipeID { get; set; }
         [MinLength(5, ErrorMessage = "Please enter at least 5 characters.")]
         [MaxLength(25, ErrorMessage = "Too many characters. Max is 25.")]
         [Required]
-        public string ItemName { get; set; }
+        public string RecipeName { get; set; }
         [Required]
-        public int Calories { get; set; }
+        public int ServingSize { get; set; }
         [Required]
-        [Display(Name = "Date Purchased")]
-        public DateTime PurchaseDate { get; set; }
+        public List<RecipeItem> NeededItems { get; set; }
         [Required]
-        [Display(Name = "Date Expired")]
-        public DateTime ExpirationDate { get; set; }
+        [Display(Name = "Meal Type")]
+        public MealType Type { get; set; }
         [Required]
-        public FoodGroup FoodType { get; set; }
-        public int FridgeId { get; set; }
+        public RecipeItem ItemName { get; set; }
+
     }
 }

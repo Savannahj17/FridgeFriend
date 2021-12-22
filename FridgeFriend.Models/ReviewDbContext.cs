@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace FridgeFriend.Models
 {
-    public class ReviewDbContext : DbContext
-    {
-        public ReviewDbContext() : base("DefaultConnection")
-        {
+    //public class ReviewDbContext : DbContext
+    //{
+    //    public ReviewDbContext() : base("DefaultConnection")
+    //    {
 
-        }
+    //    }
 
 
-        public DbSet<Reviews> Review { get; set; }
-    }
+    //    public DbSet<Reviews> Review { get; set; }
+    //}
 }

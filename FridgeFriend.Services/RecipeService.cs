@@ -19,7 +19,7 @@ namespace FridgeFriend.Services
                     RecipeID = model.RecipeID,
                     RecipeName = model.RecipeName,
                     ServingSize = model.ServingSize,
-                    Type = model.Type,
+                    Type = model.Type, //adding multiple items to a recipe? 
                     ItemName = model.ItemName,
                     NeededItems = model.NeededItems
                 };
@@ -45,6 +45,7 @@ namespace FridgeFriend.Services
                         RecipeName = entity.RecipeName,
                         ServingSize = entity.ServingSize,
                         Type = entity.Type,
+                        //Items = entity.Items,
                         NeededItems = entity.NeededItems
 
                     };
@@ -58,7 +59,7 @@ namespace FridgeFriend.Services
                     ctx
                         .Recipes
                         .Single(e => e.RecipeID == item.RecipeID);
-                entity.Name = item.RecipeName;
+                entity.RecipeName = item.RecipeName;
                 entity.Type = item.Type;
 
                 return ctx.SaveChanges() == 1;

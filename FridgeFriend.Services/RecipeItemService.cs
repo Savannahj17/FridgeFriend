@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace FridgeFriend.Services
 {
-    class RecipeItemService
+    public class RecipeItemService
     {
         public bool CreateRecipeItem(RecipeItemCreate model)
         {
@@ -16,11 +16,11 @@ namespace FridgeFriend.Services
                 new RecipeItem
                 {
                     ItemID = model.ItemID,
-                    Name = model.Name,
+                    ItemName = model.ItemName,
                     Calories = model.Calories,
                     PurchaseDate = model.PurchaseDate,
                     ExpirationDate = model.ExpirationDate,
-                    Type = model.Type,
+                    FoodType = model.FoodType,
                     FridgeId = model.FridgeId
                 };
             using (var ctx = new ApplicationDbContext())
@@ -44,7 +44,7 @@ namespace FridgeFriend.Services
                     RecipeItemListItem item = new RecipeItemListItem
                         {
                         ItemID = e.ItemID,
-                            Name = e.Name,
+                            ItemName = e.ItemName,
                             Calories = e.Calories,
                             ExpirationDate = e.ExpirationDate
                         };
@@ -66,12 +66,23 @@ namespace FridgeFriend.Services
                     new RecipeItemDetail
                     {
                         ItemID = entity.ItemID,
-                        Name = entity.Name,
+                        ItemName = entity.ItemName,
                         PurchaseDate = entity.PurchaseDate,
                         ExpirationDate = entity.ExpirationDate
                     };
             }
         }
+        //public IEnumerable<RecipeItemListItem> GetRecipeItemsByRecipeId(int id)
+        //{
+        //    using (var ctx = new ApplicationDbContext())
+        //    {
+        //        var items = new List<RecipeList>();
+        //        foreach(var e in ctx.RecipeItems)
+        //        {
+        //            if (e.)
+        //        }
+        //    }
+        //}
         public bool UpdateRecipeItem(RecipeItemEdit item)
         {
             using (var ctx = new ApplicationDbContext())
@@ -80,8 +91,8 @@ namespace FridgeFriend.Services
                     ctx
                         .RecipeItems
                         .Single(e => e.ItemID == item.ItemID);
-                entity.Name = item.Name;
-                entity.Type = item.Type;
+                entity.ItemName = item.ItemName;
+                entity.FoodType = item.Type;
 
                 return ctx.SaveChanges() == 1;
             }
