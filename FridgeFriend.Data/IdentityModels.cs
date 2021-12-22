@@ -25,15 +25,12 @@ namespace FridgeFriend.Data
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
-
+        
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
         }
         public DbSet<RecipeItem> RecipeItems { get; set; }
         public DbSet<Fridge> Fridges { get; set; }
-
-        public DbSet<Review> Reviews { get; set; }
-        public DbSet<Recipe> Recipes { get; set; }
     }
 }

@@ -1,6 +1,5 @@
 ﻿using FridgeFriend.Data;
 using FridgeFriend.Models;
-using FridgeFriend.Services;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -18,32 +17,34 @@ namespace FridgeFriend.WebApi.Controllers
         private readonly ReviewDbContext _context = new ReviewDbContext();
 
         [HttpPost]
-        public IHttpActionResult PostReview([FromBody] ReviewCreate review)
+        public async Task<IHttpActionResult> PostReview([FromBody] ReviewCreate model)
         {
+            if (model is null)
+            {
+                return BadRequest("Your request body cannot be empty");
+            }
+            if (ModelState.IsValid)
+            {
+                //_context.Review.Add(review);
+                int changeCount = await _context.SaveChangesAsync();
+               
+                return Ok("You've created your review!");
+            }
 
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
-
-            var service = CreateReviewService();
-
-            if (!service.CreateReview(review))
-                return InternalServerError();
-
-            return Ok();
-           
+            return BadRequest(ModelState);
         }
 
         [HttpGet]
         public async Task<IHttpActionResult> GetAll()
         {
-            List<Review> reviews = await _context.Reviews.ToListAsync();
+            List<Reviews> reviews = await _context.Review.ToListAsync();
             return Ok(reviews);
         }
 
         [HttpGet]
-        public async Task<IHttpActionResult> GetReviewByReviewID([FromUri] int reviewID)
+        public async Task<IHttpActionResult> GetReviewByReviewID([FromUri]int reviewID)
         {
-            Review review = await _context.Reviews.FindAsync(reviewID);
+            Reviews review = await _context.Review.FindAsync(reviewID);
 
             if (review != null)
             {
@@ -56,7 +57,7 @@ namespace FridgeFriend.WebApi.Controllers
         [HttpGet]
         public async Task<IHttpActionResult> GetReviewByRecipeID([FromUri] int recipeID)
         {
-            Review review = await _context.Reviews.FindAsync(recipeID);
+            Reviews review = await _context.Review.FindAsync(recipeID);
 
             if (review != null)
             {
@@ -67,23 +68,23 @@ namespace FridgeFriend.WebApi.Controllers
         }
 
         [HttpPut]
-        public async Task<IHttpActionResult> UpdateReview([FromUri] int reviewID, Review updatedReview)
+        public async Task<IHttpActionResult> UpdateReview([FromUri] int reviewID, Reviews updatedReview)
         {
-            if (reviewID != updatedReview?.ReviewID)
+            if(reviewID != updatedReview?.ReviewID)
             {
                 return BadRequest("Ids do not match.");
             }
 
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
-            Review review = await _context.Reviews.FindAsync(reviewID);
+            Reviews review = await _context.Review.FindAsync(reviewID);
 
             if (review is null)
                 return NotFound();
 
             review.Rating = updatedReview.Rating;
             review.RecipeName = updatedReview.RecipeName;
-            review.ReviewText = updatedReview.ReviewText;
+            review.Review = updatedReview.Review;
 
             await _context.SaveChangesAsync();
 
@@ -91,27 +92,21 @@ namespace FridgeFriend.WebApi.Controllers
         }
 
         [HttpDelete]
-        public async Task<IHttpActionResult> DeleteReview([FromUri] int reviewID)
+        public async Task<IHttpActionResult> DeleteReview([FromUri]int reviewID)
         {
-            Review review = await _context.Reviews.FindAsync(reviewID);
+            Reviews review = await _context.Review.FindAsync(reviewID);
 
             if (review is null)
                 return NotFound();
 
-            _context.Reviews.Remove(review);
+            _context.Review.Remove(review);
 
-            if (await _context.SaveChangesAsync() == 1)
+            if(await _context.SaveChangesAsync() == 1)
             {
                 return Ok("The restaurant was deleted.");
             }
 
             return InternalServerError();
-        }
-
-        private ReviewService CreateReviewService()
-        {
-            var reviewService = new ReviewService();
-            return reviewService;
         }
     }
 }

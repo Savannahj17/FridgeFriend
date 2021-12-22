@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FridgeFriend.Models.RecipeModels
 {
-    public class RecipeItemListItem
+    class RecipeItemListItem
     {
         public int ItemID { get; set; }
         public string Name { get; set; }
