@@ -31,6 +31,6 @@ namespace FridgeFriend.Data
             return new ApplicationDbContext();
         }
         public DbSet<RecipeItem> RecipeItems { get; set; }
-        public DbSet<Recipe> Recipes { get; set; }
+        public DbSet<Fridge> Fridges { get; set; }
     }
 }

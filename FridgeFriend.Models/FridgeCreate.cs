@@ -5,19 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FridgeFriend.Data
+namespace FridgeFriend.Models
 {
-    public class Fridge
+    public class FridgeCreate
     {
-
-
-        [Key]
-        public int FridgeId { get; set; }
-
-        [Required]
-        public Guid OwnerId { get; set; }
-
-        [Required]
         public string FridgeMake { get; set; }
 
         [Required]
@@ -28,13 +19,7 @@ namespace FridgeFriend.Data
 
         public string Address { get; set; }
 
-        [Required]
+        [Required] 
         public string UserEmail { get; set; }
-
-        [Required]
-        public Guid UserId { get; set; }
-
-        [Required]
-        public List<RecipeItem> RecipeItems { get; set; } 
     }
 }

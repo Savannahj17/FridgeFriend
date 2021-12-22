@@ -9,8 +9,9 @@ namespace FridgeFriend.Models.RecipeModels
 {
     public class RecipeItemEdit
     {
-        public int ItemID { get; set; }
-        public string Name { get; set; }
-        public FoodGroup Type { get; set; }
+        
+            public int ItemID { get; set; }
+            public string Name { get; set; }
+            public FoodGroup Type { get; set; }
     }
 }
