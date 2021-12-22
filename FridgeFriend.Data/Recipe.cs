@@ -17,9 +17,9 @@ namespace FridgeFriend.Data
         public string RecipeName { get; set; }
         [Required]
         public int ServingSize { get; set; }
-        //[ForeignKey]
-        public virtual ICollection<RecipeItem> RecipeItems{ get; set; }
-        [Required]
+        [ForeignKey(nameof(ItemName))]
+        public string Name { get; set; }
+        public virtual RecipeItem ItemName { get; set; }
         public List<RecipeItem> NeededItems { get; set; }
         [Required]
         public List<RecipeItem> AvalibleItems { get; set; }
@@ -29,5 +29,7 @@ namespace FridgeFriend.Data
         public MealType Type { get; set; }
         public List<Recipe> ListOfRecipes { get; set; }
         public ICollection<RecipeItem> RecipeItems { get; set; }
+
+
     }
 }

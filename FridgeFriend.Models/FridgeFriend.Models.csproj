@@ -58,10 +58,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RecipeModels\RecipeDetail.cs" />
+    <Compile Include="RecipeModels\RecipeCreate.cs" />
+    <Compile Include="RecipeModels\RecipeEdit.cs" />
     <Compile Include="RecipeModels\RecipeItemCreate.cs" />
     <Compile Include="RecipeModels\RecipeItemDetail.cs" />
     <Compile Include="RecipeModels\RecipeItemEdit.cs" />
     <Compile Include="RecipeModels\RecipeItemListItem.cs" />
+    <Compile Include="RecipeModels\RecipeList.cs" />
     <Compile Include="ReviewCreate.cs" />
     <Compile Include="ReviewDetail.cs" />
     <Compile Include="ReviewEdit.cs" />
