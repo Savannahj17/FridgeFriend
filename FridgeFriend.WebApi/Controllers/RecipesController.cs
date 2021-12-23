@@ -83,8 +83,8 @@ namespace FridgeFriend.WebApi.Controllers
             //update properties
             recipe.RecipeName = updatedRecipe.RecipeName;
             recipe.ServingSize = updatedRecipe.ServingSize;
-            recipe.ItemName = updatedRecipe.ItemName;
-            recipe.NeededItems = updatedRecipe.NeededItems;
+            //recipe.ItemName = updatedRecipe.ItemName;
+            //recipe.NeededItems = updatedRecipe.NeededItems;
             recipe.Type = updatedRecipe.Type;
             //save changes
             await _context.SaveChangesAsync();

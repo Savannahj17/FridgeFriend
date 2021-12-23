@@ -20,8 +20,8 @@ namespace FridgeFriend.Services
                     RecipeName = model.RecipeName,
                     ServingSize = model.ServingSize,
                     Type = model.Type, //adding multiple items to a recipe? 
-                    ItemName = model.ItemName,
-                    NeededItems = model.NeededItems
+                    //ItemName = model.ItemName.
+                    
                 };
             using (var ctx = new ApplicationDbContext())
             {
@@ -45,8 +45,8 @@ namespace FridgeFriend.Services
                         RecipeName = entity.RecipeName,
                         ServingSize = entity.ServingSize,
                         Type = entity.Type,
-                        ItemId = entity.ItemId,
-                        NeededItems = entity.NeededItems
+                        //ItemId = entity.ItemId,
+                        
 
                     };
             }
