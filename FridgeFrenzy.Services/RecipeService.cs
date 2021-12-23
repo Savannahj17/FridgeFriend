@@ -27,7 +27,24 @@ namespace FridgeFrenzy.Services
                 return ctx.SaveChanges() == 1;
             }
         }
-        //public RecipeDetail GetRecipe()
+        /*public IEnumerable<ListofRecipes> GetRecipes()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                    .Recipes
+                    .Select(
+                        e => new ListOfRecipes
+                        {
+                            RecipeID = e.RecipeID,
+                            RecipeItemID = e.RecipeItemID,
+                            RecipeName = e.RecipeName,
+                            Type = e.Type,
+
+                        })
+            }
+        }*/
         
 
         public RecipeDetail GetRecipeById(int recipeId)
