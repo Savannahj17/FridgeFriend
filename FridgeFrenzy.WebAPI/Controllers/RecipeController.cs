@@ -24,16 +24,52 @@ namespace FridgeFrenzy.WebAPI.Controllers
             var item = recipeService.GetRecipeById(id);
             return Ok(item);
         }
+        /*[HttpGet]
+        public IHttpActionResult Get()
+        {
+            RecipeService recipeService = CreateRecipeService();
+            var item = recipeService.GetRecipe();
+            return Ok(item);
+        }*/
 
         [HttpPost]
         public IHttpActionResult Post(RecipeCreate item)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
-            var recipeItemService = CreateRecipeService();
-            if (!recipeItemService.RecipeCreate(item))
+
+            RecipeService recipeService = CreateRecipeService();
+            if (!recipeService.RecipeCreate(item))
+
                 return InternalServerError();
             return Ok();
+        }
+        [HttpPut]
+        public IHttpActionResult Put(RecipeEdit item)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+            RecipeService service = CreateRecipeService();
+            if (!service.UpdateRecipe(item))
+                return InternalServerError();
+            return Ok();
+        }
+        [HttpDelete]
+        public IHttpActionResult Delete(int id)
+        {
+            RecipeService service = CreateRecipeService();
+            bool item = service.DeleteRecipe(id);
+            if (!item)
+            {
+                return InternalServerError();
+            }
+            else
+            {
+                return Ok();
+            }
+            // can do if(!service.DeleteRecipeItem(id))
+            //return InternalServerError();
+            //return Ok();
         }
 
     }

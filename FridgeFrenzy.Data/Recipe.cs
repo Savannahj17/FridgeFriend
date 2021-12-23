@@ -19,10 +19,8 @@ namespace FridgeFrenzy.Data
         public int ServingSize { get; set; }
         public string RecipeText { get; set; }
 
-        //public List<RecipeItem> NeededItems { get; set; }
-
-        //public List<RecipeItem> AvailableItems { get; set; }
-
+        [ForeignKey("ItemID")]
+        public int RecipeItemID { get; set; }
 
         [Display(Name = "MealType")]
         public MealType Type { get; set; }

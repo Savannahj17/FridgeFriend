@@ -18,9 +18,8 @@ namespace FridgeFrenzy.Services
                     RecipeID = model.RecipeID,
                     RecipeName = model.RecipeName,
                     ServingSize = model.ServingSize,
-                    Type = model.Type, //adding multiple items to a recipe? 
-                                       //ItemName = model.ItemName.
-
+                    RecipeText = model.RecipeText,
+                    Type = model.Type, 
                 };
             using (var ctx = new ApplicationDbContext())
             {
@@ -28,6 +27,25 @@ namespace FridgeFrenzy.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+        /*public IEnumerable<ListofRecipes> GetRecipes()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                    .Recipes
+                    .Select(
+                        e => new ListOfRecipes
+                        {
+                            RecipeID = e.RecipeID,
+                            RecipeItemID = e.RecipeItemID,
+                            RecipeName = e.RecipeName,
+                            Type = e.Type,
+
+                        })
+            }
+        }*/
+        
 
         public RecipeDetail GetRecipeById(int recipeId)
         {
@@ -43,8 +61,9 @@ namespace FridgeFrenzy.Services
                         RecipeID = entity.RecipeID,
                         RecipeName = entity.RecipeName,
                         ServingSize = entity.ServingSize,
+                        RecipeText = entity.RecipeText,
                         Type = entity.Type,
-                        //ItemId = entity.ItemId,
+                        
 
 
                     };
