@@ -23,6 +23,7 @@ namespace FridgeFriend.Services
                 new Fridge()
                 {
                     OwnerId = _userId,
+                    FridgeId = model.FridgeId,
                     FridgeMake = model.FridgeMake,
                     FridgeModel = model.FridgeModel,
                     Nickname = model.Nickname,
@@ -50,6 +51,8 @@ namespace FridgeFriend.Services
                                 new FridgeListItem
                                 {
                                     FridgeId = e.FridgeId,
+                                    FridgeMake = e.FridgeMake,
+                                    FridgeModel = e.FridgeModel,
                                     Nickname = e.Nickname
                                 }
                         );
@@ -71,7 +74,7 @@ namespace FridgeFriend.Services
                 entity.Nickname = model.Nickname;
                 entity.Address = model.Address;
                 entity.UserEmail = model.UserEmail;
-                entity.ModifiedUtc = DateTimeOffset.UtcNow;
+               
 
                 return ctx.SaveChanges() == 1;
             }
