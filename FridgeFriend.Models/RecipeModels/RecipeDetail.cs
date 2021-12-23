@@ -12,7 +12,7 @@ namespace FridgeFriend.Models
         public int RecipeID { get; set; }
         public string RecipeName { get; set; }
         public int ServingSize { get; set; }
-        
+        public string RecipeText { get; set; }
         public MealType Type { get; set; }
         public int ItemId { get; set; }
         public string ItemName { get; set; }
