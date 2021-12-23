@@ -13,23 +13,25 @@ namespace FridgeFriend.Data
     {
         [Key]
         public int RecipeID { get; set; }
-        [Required]
+        
         public string RecipeName { get; set; }
-        [Required]
+        
         public int ServingSize { get; set; }
-        [ForeignKey(nameof(ItemName))]
-        public int ItemId { get; set; }
-        public virtual RecipeItem ItemName { get; set; }
-        public List<RecipeItem> NeededItems { get; set; }
-        [Required]
-        public List<RecipeItem> AvailableItems { get; set; }
+        public string RecipeText { get; set; }
 
-        [Required]
+        //public List<RecipeItem> NeededItems { get; set; }
+        
+        //public List<RecipeItem> AvailableItems { get; set; }
+
+        
         [Display(Name = "MealType")]
         public MealType Type { get; set; }
-        public List<Recipe> ListOfRecipes { get; set; }
-        public ICollection<RecipeItem> RecipeItems { get; set; }
-
+        //public List<Recipe> ListOfRecipes { get; set; }
+        public virtual ICollection<RecipeItem> ListRecipeItems { get; set; }
+        public Recipe()
+        {
+            ListRecipeItems = new HashSet<RecipeItem>();
+        }
 
     }
 }
