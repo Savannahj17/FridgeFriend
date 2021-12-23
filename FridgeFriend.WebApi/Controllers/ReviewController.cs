@@ -112,7 +112,7 @@ namespace FridgeFriend.WebApi.Controllers
 
             if (await _context.SaveChangesAsync() == 1)
             {
-                return Ok("The restaurant was deleted.");
+                return Ok("The review was deleted.");
             }
 
             return InternalServerError();
