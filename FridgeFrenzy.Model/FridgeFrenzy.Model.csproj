@@ -54,12 +54,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="FridgeCreate.cs" />
+    <Compile Include="FridgeDetail.cs" />
+    <Compile Include="FridgeEdit.cs" />
+    <Compile Include="FridgeListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RecipeCreate.cs" />
+    <Compile Include="RecipeDetail.cs" />
+    <Compile Include="RecipeEdit.cs" />
+    <Compile Include="RecipeItemCreate.cs" />
+    <Compile Include="RecipeItemDetail.cs" />
+    <Compile Include="RecipeItemEdit.cs" />
+    <Compile Include="RecipeItemListItem.cs" />
+    <Compile Include="RecipeList.cs" />
+    <Compile Include="ReviewCreate.cs" />
+    <Compile Include="ReviewDetail.cs" />
+    <Compile Include="ReviewEdit.cs" />
+    <Compile Include="ReviewListItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FridgeFrenzy.Data\FridgeFrenzy.Data.csproj">
+      <Project>{25FA54A7-EE03-45A7-938B-CD20434AF6E1}</Project>
+      <Name>FridgeFrenzy.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
