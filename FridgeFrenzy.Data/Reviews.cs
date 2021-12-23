@@ -9,7 +9,7 @@ namespace FridgeFrenzy.Data
 {
     public class Review
     {
-        //Foreign
+        
         [Display(Name = "Recipe")]
         public int RecipeID { get; set; }
         public virtual Recipe RecipeName { get; set; }
