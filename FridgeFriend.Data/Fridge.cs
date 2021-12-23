@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,8 +35,10 @@ namespace FridgeFriend.Data
         [Required]
         public Guid UserId { get; set; } //not needed?
 
-        [Required]
-        public List<RecipeItem> RecipeItems { get; set; }
+        [ForeignKey("ItemID")]
+        public int ItemID { get; set; }
+        public virtual RecipeItem RecipeItem{ get; set; }
+
         public DateTimeOffset ModifiedUtc { get; set; }
     }
 }

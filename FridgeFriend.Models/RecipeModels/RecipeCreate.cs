@@ -19,7 +19,9 @@ namespace FridgeFriend.Models.RecipeModels
         [Required]
         public int ServingSize { get; set; }
         [Required]
-        public List<RecipeItem> NeededItems { get; set; }
+        public string RecipeText { get; set; }
+        //[Required]
+        //public List<RecipeItem> NeededItems { get; set; }
         [Required]
         [Display(Name = "Meal Type")]
         public MealType Type { get; set; }
