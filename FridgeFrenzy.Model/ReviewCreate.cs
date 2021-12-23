@@ -17,7 +17,7 @@ namespace FridgeFrenzy.Model
         public virtual int RecipeID { get; set; }
 
         public int ReviewID { get; set; }
-        //public string RecipeName { get; set; }
+        public string RecipeName { get; set; }
         public double Rating { get; set; }
 
         public DateTimeOffset CreatedUtc
