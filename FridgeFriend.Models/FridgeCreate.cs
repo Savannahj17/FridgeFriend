@@ -9,6 +9,8 @@ namespace FridgeFriend.Models
 {
     public class FridgeCreate
     {
+        [Required]
+        public int FridgeId { get; set; }
         public string FridgeMake { get; set; }
 
         [Required]

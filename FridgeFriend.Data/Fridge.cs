@@ -34,7 +34,7 @@ namespace FridgeFriend.Data
         [Required]
         public Guid UserId { get; set; } //not needed?
 
-        [Required]
+       
         public List<RecipeItem> RecipeItems { get; set; }
         public DateTimeOffset ModifiedUtc { get; set; }
     }

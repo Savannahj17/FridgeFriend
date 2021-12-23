@@ -11,5 +11,7 @@ namespace FridgeFriend.Models
     {
         public int FridgeId { get; set; }
         public string Nickname { get; set; }
+        public string FridgeMake { get; set; }
+        public string FridgeModel { get; set; }
     }
 }
