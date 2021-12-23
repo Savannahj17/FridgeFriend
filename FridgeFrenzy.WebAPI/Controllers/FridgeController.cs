@@ -55,14 +55,17 @@ namespace FridgeFrenzy.WebAPI.Controllers
 
             return Ok();
         }
-        [HttpPost]
-        //public IHttpActionResult Edit(Fridge fridge)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-
-        //    }
-        //}
+       
+        public IHttpActionResult Put(FridgeEdit fridge)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+            var service = CreateFridgeService();
+            if (!service.UpdateFridge(fridge))
+                return InternalServerError();
+            return Ok();
+            
+        }
 
         [HttpDelete]
         public IHttpActionResult Delete(int id)

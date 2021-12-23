@@ -11,7 +11,7 @@ namespace FridgeFrenzy.WebAPI.Controllers
 {
     public class RecipeController : ApiController
     {
-        private RecipeService CreateRecipeItemService()
+        private RecipeService CreateRecipeService()
         {
             var recipeItemService = new RecipeService();
             return recipeItemService;
@@ -20,8 +20,8 @@ namespace FridgeFrenzy.WebAPI.Controllers
         [HttpGet]
         public IHttpActionResult Get(int id)
         {
-            RecipeItemService recipeItemService = CreateRecipeService();
-            var item = recipeItemService.GetRecipeItemById(id);
+            RecipeService recipeService = CreateRecipeService();
+            var item = recipeService.GetRecipeById(id);
             return Ok(item);
         }
 
@@ -30,8 +30,8 @@ namespace FridgeFrenzy.WebAPI.Controllers
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
-            RecipeItemService recipeItemService = CreateRecipeService();
-            if (!recipeItemService.CreateRecipeItem(item))
+            var recipeItemService = CreateRecipeService();
+            if (!recipeItemService.RecipeCreate(item))
                 return InternalServerError();
             return Ok();
         }
