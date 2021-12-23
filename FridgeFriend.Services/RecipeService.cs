@@ -45,7 +45,7 @@ namespace FridgeFriend.Services
                         RecipeName = entity.RecipeName,
                         ServingSize = entity.ServingSize,
                         Type = entity.Type,
-                        //Items = entity.Items,
+                        ItemId = entity.ItemId,
                         NeededItems = entity.NeededItems
 
                     };

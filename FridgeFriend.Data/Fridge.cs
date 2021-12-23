@@ -32,7 +32,7 @@ namespace FridgeFriend.Data
         public string UserEmail { get; set; }
 
         [Required]
-        public Guid UserId { get; set; } //not needed
+        public Guid UserId { get; set; } //not needed?
 
         [Required]
         public List<RecipeItem> RecipeItems { get; set; }

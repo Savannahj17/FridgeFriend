@@ -65,7 +65,17 @@ namespace FridgeFriend.WebApi.Controllers
 
             return NotFound();
         }
+        [HttpGet]
+        public async Task<IHttpActionResult> GetReviewsByRating([FromUri] double rating)
+        {
+            Review review = await _context.Reviews.FindAsync(rating);
+            if (review != null)
+            {
+                return Ok(review);
+            }
 
+            return NotFound();
+        }
         [HttpPut]
         public async Task<IHttpActionResult> UpdateReview([FromUri] int reviewID, Review updatedReview)
         {

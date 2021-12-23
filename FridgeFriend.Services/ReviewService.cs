@@ -69,6 +69,26 @@ namespace FridgeFriend.Services
             }
 
         }
+        public ReviewDetail GetReviewsByRating(double rating)
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Reviews
+                    .Single(e => e.Rating == rating);
+                return
+                    new ReviewDetail
+                    {
+                        RecipeID = entity.RecipeID,
+                        ReviewID = entity.ReviewID,
+                        ReviewText = entity.ReviewText,
+                        Rating = entity.Rating,
+                        CreatedUtc = DateTimeOffset.Now
+                    };
+
+            }
+        }
 
         public bool UpdateReview(ReviewEdit model)
         {
@@ -81,7 +101,7 @@ namespace FridgeFriend.Services
 
                 entity.ReviewID = model.ReviewID;
                 entity.Rating = model.Rating;
-                //entity.RecipeName = model.RecipeName;
+                entity.RecipeID = model.RecipeID;
                 entity.ReviewText = model.ReviewText;
 
                 return ctx.SaveChanges() == 1;

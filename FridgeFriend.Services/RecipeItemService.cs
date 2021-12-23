@@ -72,17 +72,27 @@ namespace FridgeFriend.Services
                     };
             }
         }
-        //public IEnumerable<RecipeItemListItem> GetRecipeItemsByRecipeId(int id)
-        //{
-        //    using (var ctx = new ApplicationDbContext())
-        //    {
-        //        var items = new List<RecipeList>();
-        //        foreach(var e in ctx.RecipeItems)
-        //        {
-        //            if (e.)
-        //        }
-        //    }
-        //}
+        public IEnumerable<RecipeItemListItem> GetRecipeItemsByFridgeId(int fridgeId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                        .RecipeItems
+                        .Where(e => e.FridgeId == fridgeId)
+                        .Select(
+                        e =>
+                        new RecipeItemListItem
+                        {
+                            ItemID = e.ItemID,
+                            ItemName = e.ItemName,
+                            PurchaseDate = e.PurchaseDate,
+                            ExpirationDate = e.ExpirationDate
+                        });
+                        return query.ToArray();
+
+            }
+        }
         public bool UpdateRecipeItem(RecipeItemEdit item)
         {
             using (var ctx = new ApplicationDbContext())
@@ -92,7 +102,12 @@ namespace FridgeFriend.Services
                         .RecipeItems
                         .Single(e => e.ItemID == item.ItemID);
                 entity.ItemName = item.ItemName;
-                entity.FoodType = item.Type;
+                entity.FoodType = item.FoodType;
+                entity.Calories = item.Calories;
+                entity.PurchaseDate = item.PurchaseDate;
+                entity.ExpirationDate = item.ExpirationDate;
+                entity.FoodType = item.FoodType;
+
 
                 return ctx.SaveChanges() == 1;
             }

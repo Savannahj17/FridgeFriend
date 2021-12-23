@@ -16,5 +16,6 @@ namespace FridgeFriend.Models
         public List<RecipeItem> AvailableItems { get; set; }
         public MealType Type { get; set; }
         public int ItemId { get; set; }
+        public string ItemName { get; set; }
     }
 }

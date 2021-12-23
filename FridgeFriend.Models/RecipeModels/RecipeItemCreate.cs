@@ -16,6 +16,7 @@ namespace FridgeFriend.Models.RecipeModels
         [Required]
         public string ItemName { get; set; }
         [Required]
+        [Display(Name = "Calories")]
         public int Calories { get; set; }
         [Required]
         [Display(Name = "Date Purchased")]
@@ -24,6 +25,7 @@ namespace FridgeFriend.Models.RecipeModels
         [Display(Name = "Date Expired")]
         public DateTime ExpirationDate { get; set; }
         [Required]
+        [Display(Name = "Food Type")]
         public FoodGroup FoodType { get; set; }
         public int FridgeId { get; set; }
     }

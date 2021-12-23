@@ -18,7 +18,7 @@ namespace FridgeFriend.Data
         [Required]
         public int ServingSize { get; set; }
         [ForeignKey(nameof(ItemName))]
-        public int RecipeItemId { get; set; }
+        public int ItemId { get; set; }
         public virtual RecipeItem ItemName { get; set; }
         public List<RecipeItem> NeededItems { get; set; }
         [Required]

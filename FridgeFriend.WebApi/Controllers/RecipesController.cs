@@ -52,6 +52,16 @@ namespace FridgeFriend.WebApi.Controllers
             }
             return NotFound();
         }
+        [HttpGet]
+        public async Task<IHttpActionResult> GetRecipesByItemID([FromUri] int itemId)
+        {
+            Recipe recipe = await _context.Recipes.FindAsync(itemId);
+            if(recipe != null)
+            {
+                return Ok(recipe);
+            }
+            return NotFound();
+        }
 
         [HttpPut]
         public async Task<IHttpActionResult> UpdateRecipe([FromUri]int recipeId, [FromBody] Recipe updatedRecipe)
