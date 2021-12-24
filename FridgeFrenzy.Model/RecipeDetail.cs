@@ -16,6 +16,6 @@ namespace FridgeFrenzy.Model
         public MealType Type { get; set; }
         public int ItemId { get; set; }
         public string ItemName { get; set; }
-        public List<RecipeItem> ListRecipeItems { get; set; }
+        public List<RecipeItem> Items { get; set; }
     }
 }

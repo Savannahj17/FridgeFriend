@@ -89,7 +89,7 @@ namespace FridgeFrenzy.Services
                 var entity =
                     ctx
                         .Fridges
-                        .Single(e => e.FridgeId == model.FridgeId );
+                        .Single(e => e.FridgeId == model.FridgeId);
 
                 entity.FridgeMake = model.FridgeMake;
                 entity.FridgeModel = model.FridgeModel;

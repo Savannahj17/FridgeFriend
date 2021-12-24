@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace FridgeFrenzy.Services
 {
-   public class RecipeService
+    public class RecipeService
     {
         public bool RecipeCreate(RecipeCreate model)
         {
@@ -18,9 +18,9 @@ namespace FridgeFrenzy.Services
                     RecipeID = model.RecipeID,
                     RecipeName = model.RecipeName,
                     ServingSize = model.ServingSize,
-                    Type = model.Type, //adding multiple items to a recipe? 
-                                       //ItemName = model.ItemName.
-
+                    RecipeText = model.RecipeText,
+                    Type = model.Type,
+                    ListRecipeItems = model.Items,
                 };
             using (var ctx = new ApplicationDbContext())
             {
@@ -28,7 +28,27 @@ namespace FridgeFrenzy.Services
                 return ctx.SaveChanges() == 1;
             }
         }
-
+        public IEnumerable<RecipeItemListItem> GetRecipe()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                ctx
+                .Recipes
+                .Select(
+            e => new RecipeItemListItem
+            {
+                RecipeID = e.RecipeID,
+                ItemID = e.RecipeItemID,
+                ItemName = e.Item.ItemName,
+                Calories = e.Item.Calories,
+                ExpirationDate = e.Item.ExpirationDate,
+                PurchaseDate = e.Item.PurchaseDate,
+                FridgeID = e.Item.FridgeId,
+            });
+                return query.ToList();
+            }
+        }
         public RecipeDetail GetRecipeById(int recipeId)
         {
             using (var ctx = new ApplicationDbContext())
@@ -43,11 +63,17 @@ namespace FridgeFrenzy.Services
                         RecipeID = entity.RecipeID,
                         RecipeName = entity.RecipeName,
                         ServingSize = entity.ServingSize,
+                        RecipeText = entity.RecipeText,
                         Type = entity.Type,
-                        //ItemId = entity.ItemId,
+                        Items = new List<RecipeItem>()
+                        {
+                           
+
+                        }
 
 
-                    };
+
+                        };
             }
         }
         public bool UpdateRecipe(RecipeEdit item)

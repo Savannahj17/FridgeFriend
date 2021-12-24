@@ -9,6 +9,7 @@ namespace FridgeFrenzy.Model
 {
     public class ReviewDetail
     {
+        public Guid UserId { get; set; }
         public int ReviewID { get; set; }
         public int RecipeID { get; set; }
         public string RecipeName { get; set; }

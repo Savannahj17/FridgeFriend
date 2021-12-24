@@ -12,6 +12,7 @@ namespace FridgeFrenzy.Data
         
         [Display(Name = "Recipe")]
         public int RecipeID { get; set; }
+        public Guid UserId { get; set; }
         public virtual Recipe RecipeName { get; set; }
         public int ReviewID { get; set; }
         public string ReviewText { get; set; }

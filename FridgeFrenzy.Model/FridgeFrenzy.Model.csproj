@@ -69,7 +69,6 @@
     <Compile Include="RecipeList.cs" />
     <Compile Include="ReviewCreate.cs" />
     <Compile Include="ReviewDetail.cs" />
-    <Compile Include="ReviewEdit.cs" />
     <Compile Include="ReviewListItem.cs" />
   </ItemGroup>
   <ItemGroup>

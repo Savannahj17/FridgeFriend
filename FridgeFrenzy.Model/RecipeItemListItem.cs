@@ -18,6 +18,7 @@ namespace FridgeFrenzy.Model
         [Display(Name = "Date Purchased")]
         public DateTime PurchaseDate { get; set; }
         public int FridgeID { get; set; }
+        public int RecipeID { get; set; }
 
     }
 }

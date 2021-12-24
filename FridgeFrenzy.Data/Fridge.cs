@@ -31,8 +31,8 @@ namespace FridgeFrenzy.Data
         [Required]
         public string UserEmail { get; set; }
 
-        [Required]
-        public Guid UserId { get; set; } //not needed?
+        //[Required]
+        public Guid UserId { get; set; } //not needed
 
 
         public List<RecipeItem> RecipeItems { get; set; }

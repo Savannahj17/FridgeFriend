@@ -23,6 +23,9 @@ namespace FridgeFrenzy.Data
 
         //public List<RecipeItem> AvailableItems { get; set; }
 
+        [ForeignKey("ItemID")]
+        public int RecipeItemID { get; set; }
+        public virtual RecipeItem Item { get; set; }
 
         [Display(Name = "MealType")]
         public MealType Type { get; set; }

@@ -20,8 +20,8 @@ namespace FridgeFrenzy.Model
         public int ServingSize { get; set; }
         [Required]
         public string RecipeText { get; set; }
-        //[Required]
-        //public List<RecipeItem> NeededItems { get; set; }
+        [Required]
+        public List<RecipeItem> Items { get; set; }
         [Required]
         [Display(Name = "Meal Type")]
         public MealType Type { get; set; }

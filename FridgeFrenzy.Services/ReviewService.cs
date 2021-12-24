@@ -42,6 +42,26 @@ namespace FridgeFrenzy.Services
                 return
                     new ReviewDetail
                     {
+                        UserId = entity.UserId,
+                        ReviewID = entity.ReviewID,
+                        ReviewText = entity.ReviewText
+                    };
+            }
+
+        }
+
+        public ReviewDetail GetReviewsByUserId(int userId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Reviews
+                    .Single(e => e.RecipeID == userId);
+                return
+                    new ReviewDetail
+                    {
+                        UserId = entity.UserId,
                         ReviewID = entity.ReviewID,
                         ReviewText = entity.ReviewText
                     };
@@ -60,10 +80,11 @@ namespace FridgeFrenzy.Services
                 return
                     new ReviewDetail
                     {
+                        UserId = entity.UserId,
                         ReviewID = entity.ReviewID,
                         ReviewText = entity.ReviewText,
                         Rating = entity.Rating,
-                        //RecipeName = entity.RecipeName,
+                        RecipeName = entity.RecipeName.RecipeName,
                         CreatedUtc = DateTimeOffset.Now
                     };
             }
@@ -80,6 +101,7 @@ namespace FridgeFrenzy.Services
                 return
                     new ReviewDetail
                     {
+                        UserId = entity.UserId,
                         RecipeID = entity.RecipeID,
                         ReviewID = entity.ReviewID,
                         ReviewText = entity.ReviewText,
@@ -88,25 +110,6 @@ namespace FridgeFrenzy.Services
                     };
 
             }
-        }
-
-        public bool UpdateReview(ReviewEdit model)
-        {
-            using (var ctx = new ApplicationDbContext())
-            {
-                var entity =
-                    ctx
-                    .Reviews
-                    .Single(e => e.ReviewID == model.ReviewID);
-
-                entity.ReviewID = model.ReviewID;
-                entity.Rating = model.Rating;
-                entity.RecipeID = model.RecipeID;
-                entity.ReviewText = model.ReviewText;
-
-                return ctx.SaveChanges() == 1;
-            }
-
         }
 
         public bool DeleteReview(int ReviewID)

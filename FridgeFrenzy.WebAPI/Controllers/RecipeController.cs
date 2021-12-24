@@ -35,6 +35,19 @@ namespace FridgeFrenzy.WebAPI.Controllers
                 return InternalServerError();
             return Ok();
         }
-
+        [HttpDelete]
+        public IHttpActionResult Delete(int id)
+        {
+            RecipeService service = CreateRecipeService();
+            bool item = service.DeleteRecipe(id);
+            if (!item)
+            {
+                return InternalServerError();
+            }
+            else
+            {
+                return Ok();
+            }
+        }
     }
 }
